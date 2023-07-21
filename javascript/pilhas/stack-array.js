@@ -1,68 +1,68 @@
-//EXEMPLO DE PILHA USANDO CLASSE
 class Stack {
     constructor() {
         this.items = [];
     }
 
-    push(element) {
-        return this.items.push(element);
-    }
-
-    pop(element) {
-        if(this.isEmpty()) {
-            return "Não há elementos para excluir";
+    addElement(element) {
+        if(element < 0){
+            return "You cannot add a number less than zero";
         }else{
-            return "Elemento " + this.items.pop(element) + " excluído. ";
+            return this.items.push(element)
         }
-       
+        
+        
     }
 
-    //Devolve o elemento que está no topo da lista
+    deleteElement() {
+        if (this.isEmpty()) {
+            return "There's no more elements to delete on array";
+        }else{
+            const elementDel = this.items.pop();
+            return elementDel + " deleted";
+        }
+        
+    }
+
     peek() {
-        if(this.isEmpty()){
-            return "Não há elementos para mostrar";
+        if(this.isEmpty()) {
+            return "There's no element to show";
         }else{
             return this.items[this.items.length - 1];
-        }        
+        }
     }
 
     isEmpty() {
         return this.items.length === 0;
     }
 
-    size() {
-        return "Tamanaho: " + this.items.length;
+    showStack() {
+        return this.items;
     }
 
-    showAllElements() {
+    showStackByElements() {
+        for(let c=0; c<this.items.length; c++) {
+             console.log(this.items[c])
+        }
+    }
+
+    quantElements() {
         if(this.isEmpty()) {
-            console.log("Não há elemento algum na pilha")
+            return "There's no element on the array"
+        }else if (this.items.length === 1) {
+            return "There's " + this.items.length + " element on the array"
         }else{
-            for(let c=this.items.length - 1; c>=0; c--){ 
-                console.log(this.items[c])
-            }
+            return "There are " + this.items.length + " elements on the array"
         }
     }
 
 }
 
 const stack = new Stack();
+stack.addElement(6); stack.addElement(0); stack.addElement(4);
+console.log(stack.addElement(-33))
 
 console.log(stack.isEmpty())
+console.log(stack.showStack())
 console.log(stack.peek())
-console.log(stack.pop())
-stack.push(12); stack.push(34); stack.push(33)
-console.log(stack)
-console.log(stack.showAllElements())
-
-
-//EXEMPLO DE PILHA USANDO OBJETO
-
-
-
-
-
-
-
-
-
+console.log(stack.quantElements())
+console.log(stack.showStackByElements());
