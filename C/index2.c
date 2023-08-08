@@ -75,7 +75,17 @@ int main() {
     return 0;
 }*/
 
+#include <stdio.h>
 
+int main() {
+    int value; int res=1;
+    printf("Insira um valor para calcular seu fatorial\n");
+    scanf("%d", &value);
+    for(int c=value; c>=1; c--){
+        res = c * res;
+    }
+    printf("O fatorial do valor é %d ", res);
+}
 
 
 

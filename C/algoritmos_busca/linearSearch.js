@@ -11,7 +11,7 @@ console.log(value + " not exists at the array")*/
 
 
 //BUSCA BINÁRIA
-function buscaBinaria(array, elemento) {
+/*function buscaBinaria(array, elemento) {
     let inicio = 0; let fim = array.length - 1;
     while(inicio <= fim){
         const meio = Math.floor((inicio + fim)/2);
@@ -35,7 +35,8 @@ if (indiceEncontrado !== -1) {
     console.log(`O elemento ${elementoProcurado} foi encontrado no índice ${indiceEncontrado}.`);
   } else {
     console.log(`O elemento ${elementoProcurado} não foi encontrado na lista.`);
-  }
+  }*/
+
 
 
 

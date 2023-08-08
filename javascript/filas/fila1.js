@@ -42,7 +42,7 @@ console.log(queue.dequeue())
 
 console.log(queue.peek())*/
 
-class Queue {
+/*class Queue {
     constructor() {
         this.items = [];
         this.firstElement = 0;
@@ -91,7 +91,10 @@ console.log(queue.dequeue());
 console.log(queue.peek());
 console.log(queue.size())
 
-console.log(queue.peek())
+console.log(queue.peek())*/
+
+
+
 
 
 
