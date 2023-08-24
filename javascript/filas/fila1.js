@@ -12,7 +12,7 @@
 
     dequeue() {
         if(this.isEmpty()){
-            return "A lista está vazia";
+            return "A fila está vazia";
         }else{
             const result = this.items[this.firstElement];
             delete this.items[this.firstElement]
@@ -23,7 +23,7 @@
 
     peek() {
         if(this.isEmpty()) {
-            console.log("Não há elementos na lista")
+            console.log("Não há elementos na fila")
         }else{
             return this.items[this.firstElement];
         }

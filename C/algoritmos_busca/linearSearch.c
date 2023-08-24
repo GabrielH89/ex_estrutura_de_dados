@@ -38,9 +38,3 @@ int main() {
         scanf("%d", &option);
     }while(option == 2); 
 }*/
-
-
-
-
-
-

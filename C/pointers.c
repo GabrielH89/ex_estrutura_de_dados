@@ -5,30 +5,37 @@
 /*#include <stdio.h>
 int main() {
     //Capturando o enedreço de memória
-    int number = 10; char name = "Gabriel";
+    int number = 10; char name = "Gabriel"; int number2 = 10;
     printf("%p\n", &number);
     printf("%p\n", &name);
+    printf("%p\n", &number2);
 }*/
 
 //PONTEIROS
 #include <stdio.h>
 
 int main() {
-    /*int number = 7;
+    int number = 7;
     int* ptr = &number;
+    char name = "Gabriel";
+    char* ptr2 = &name;
 
     printf("Variable value: %d\n ", number);
     printf("Memory adress: %p\n", &number);
     printf("Pointer: %p\n", ptr);
-    printf("Deference: %d\n", *ptr);*/
+    printf("Deference: %d\n", *ptr);
+    printf("Memory adress of Gabriel %p\n ", &name);
+    printf("Pointer of Gabriel %c\n ", *ptr2);
 
-    int* values = {2, 3, 4, 5, 6, 1};
+    /*int* values = {2, 3, 4, 5, 6, 1};
     int valuesLength = sizeof(values) / sizeof(values[0]);
 
     for(int c=0; c<valuesLength; c++){
         printf("%p\n", values[c]);
-    } 
+    }*/ 
 }
+
+
 
 
 
