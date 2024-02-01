@@ -1,33 +1,12 @@
 #include <stdio.h>
 
-struct People {
-    char name[50];
+struct Person {
+    int nome;
     int age;
-    float heigth;
-};
+}
 
 int main() {
-    struct People people1;
-
-    strcpy(people1.name, "Gabriel");
-    people1.age = 25;
-    people1.heigth = 1.78;
-
-    printf("Name: %s\n", people1.name);
-    printf("Age: %d\n ", people1.age);
-}   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    struct Person p1;
+    p1.nome = 11;
+    p1.age = 25;
+}

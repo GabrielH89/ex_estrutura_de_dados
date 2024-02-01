@@ -1,23 +1,5 @@
-//Busca linear
-/*#include <stdio.h>
 
-int main() {
-    int array[] = {2, 3, 4, 10, 4, 23};
-    int arrayLength = sizeof(array) / sizeof(array[0]); 
-
-    for(int c=0; c<arrayLength; c++){
-        printf("%d\n", c);
-        if (array[c] == 10){
-            printf("The number %d was found at the position %d of array \n", array[c], c);
-        }
-    }
-}*/
-
-//Outro exemplo de busca linear
-/*#include <stdio.h>
-#include <string.h>
-
-int main() {
+/*int main() {
     int numbers[] = {10, 30, 50, 20, 80, 90, 30, 43, 21};
     int numbersLength = sizeof(numbers) / sizeof(numbers[0]); 
     int n; int option;
@@ -38,3 +20,25 @@ int main() {
         scanf("%d", &option);
     }while(option == 2); 
 }*/
+
+/*#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int array[] = {3, 1, 6, 8};
+    int n = sizeof(array)/sizeof(array[0]);
+    int value = 18; int found = 0;
+    for(int c=0; c<n; c++){
+        if(value == array[c]){
+            found = 1;
+            printf("Value %d was found at position %d ", value, c);
+            break;
+        }
+    }
+
+    if(!found){
+        printf("The value %d was not found ", value);
+    }
+}*/
+
+

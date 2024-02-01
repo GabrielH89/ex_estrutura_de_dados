@@ -21,7 +21,7 @@ class Stack {
         }
     }
 
-    peek(data){
+    showElement(data){
         if(this.isEmpty()){
             console.log("This element " + data + " is't on the stack, because it's emepty");
         }else{
@@ -38,6 +38,16 @@ class Stack {
             }
         }
     }
+
+    peek(){
+        if(this.isEmpty()){
+            console.log("The stack is empty");
+        }else{
+            const lastData = this.itmes[this.items.length - 1];
+            console.log("The last element is " + lastData);
+        }
+    }
+
 
     isEmpty(){
        return this.items.length === 0;
