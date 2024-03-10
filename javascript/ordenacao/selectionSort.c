@@ -73,27 +73,10 @@ int main() {
 #include <stdio.h>
 #include <math.h>
 
+void 
+
 int main() {
-    int array[] = {5, 1, 14, 9, 4, 8, 7};
-    int n = sizeof(array) / sizeof(array[0]);
-
-    for(int a=0; a<n-1; a++){
-        int minIndex = a;
-        for(int b=a+1; b<n; b++){
-            if(array[minIndex] > array[b]){
-                minIndex = b;
-            }
-        }
-        int aux = array[a];
-        array[a] = array[minIndex];
-        array[minIndex] = aux;
-    }    
-
-    printf("ORDERED ARRAY \n [ ");
-    for(int c=0; c<n; c++){
-        printf("%d ", array[c]);
-    }
-    printf("]");
+    
 }
 
 

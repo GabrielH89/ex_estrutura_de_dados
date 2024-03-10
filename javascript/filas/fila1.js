@@ -98,4 +98,52 @@ console.log(queue.peek())*/
 
 
 
+class Queue {
+    constructor() {
+        this.items = [];
+    }
 
+    enqueue(element) {
+        this.items.push(element);
+    }
+
+    dequeue() {
+        if(this.isEmpty()) {
+            console.log("Cannto delete element, because the queue is empty");
+        }else{
+            this.items.shift();
+        }
+    }
+
+    peek() {
+        if(this.isEmpty()) {
+            console.log("The Queue is empty");
+        }else{
+            const firstElement = this.items[0];
+            console.log("First element " + firstElement);
+        }
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    size() {
+        const sizeArray = this.items.length;
+        console.log("Size of array: " + sizeArray);
+    }
+
+    showQueue() {
+        for(let c=0; c<this.items.length; c++){
+            console.log(this.items[c]);
+        }
+    }
+}
+
+const q1 = new Queue();
+q1.enqueue(4)
+q1.enqueue(5)
+q1.enqueue(8);
+q1.showQueue()
+q1.peek()
+q1.size()

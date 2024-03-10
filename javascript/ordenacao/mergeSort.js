@@ -123,42 +123,4 @@ const arrayDesordenado = [4, 7, 2, 6, 5, 1, 8, 3];
 const arrayOrdenado = mergeSort(arrayDesordenado);
 console.log("Array ordenado: " + arrayOrdenado);*/
 
-function mergeSort(array) {
-  let n = array.length;
-  if(n <= 1){
-    return array;
-  }
-
-  const middle = Math.floor(n / 2);
-  const leftPart = array.slice(0, middle);
-  const rightPart = array.slice(middle);
-
-  const leftPartOrdered = mergeSort(leftPart);
-  const rightPartOrdered = mergeSort(rightPart);
-
-  return merge(leftPartOrdered, rightPartOrdered);
-}
-
-function merge(left, right){
-  let result = [];
-  let a = 0; let b = 0;
-
-  while(a < left.length && b < right.length){
-    if(left[a] < right[b]){
-      result.push(left[a]);
-      a++;
-    }else{
-      result.push(right[b]);
-      b++;
-    }
-  }
-
-  return result.concat(left.slice(a)).concat(right.slice(b));
-}
-
-const arrayDesordenado = [4, 7, 2, 6, 5, 1, 8, 3];
-const arrayOrdenado = mergeSort(arrayDesordenado);
-console.log("Array ordenado: " + arrayOrdenado);
-
-
 

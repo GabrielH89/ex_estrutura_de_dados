@@ -54,8 +54,3 @@ const arrayOrdenado = quickSort(arrayDesordenado);
 console.log("Array ordenado: " + arrayOrdenado);*/
 
 
-
-
-
-
-

@@ -1,3 +1,4 @@
+//Passar struct como parâmetro para um procedimento
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
@@ -18,11 +19,16 @@ typedef struct {
    
 }Car;
 
-int main() {
-    Person1 p1;
-    Car c1;
+void impressPerson(Person1 p) {
+    printf("\tNome: %s", p.nome);
+    printf("\tSexo: %c", p.sexo);
+    printf("\tIdade: %d", p.idade);
+    printf("\tData de nasc, %d/%d/%d", p.dataN.day, p.dataN.month, p.dataN.year);
+}
 
-    printf("%d \n", sizeof(c1));
+//Função que lê os dados de uma pessoa 
+Person1 readPerson() {
+    Person1 p1;
     printf("Digite seu nome \n");
     fgets(p1.nome, 100, stdin);
     printf("Digite seu sexo: \n");
@@ -31,9 +37,15 @@ int main() {
     scanf("%d", &p1.idade);
     printf("Digite sua data de nascimento: dia, mes, ano \n");
     scanf("%d%d%d", &p1.dataN.day, &p1.dataN.month, &p1.dataN.year);
+    return p1;
+}
 
-    printf("Nome: %s \nIdade: %d \nSexo: %c \n", p1.nome, p1.idade, p1.sexo);
-    printf("Data de nascimento: %d/%d/%d \n", p1.dataN.day, p1.dataN.month, p1.dataN.year);
+int main() {
+    Person1 p1;
+    Car c1;
+
+    p1 = readPerson();
+    impressPerson(p1);
 }
 
 
