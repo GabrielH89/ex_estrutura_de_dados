@@ -84,7 +84,7 @@ class Stack {
             console.log("Top element: " + topElement);
         }    
     }
-
+    
     isEmpty() {
         return this.items.length === 0;
     }

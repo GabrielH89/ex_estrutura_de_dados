@@ -1,0 +1,22 @@
+PERGUNTA
+O que eu não entendi é que, ao contrário de uma hahsTable que possui um metodo de iniciialização para a tabela, por exemplo, começar a tabela com a chave 0 até uma dada posição, o hashMap permite inserir qualquer valor de chave, ou seja, não tem restrição?
+
+REPOSTA
+Sim, você está correto ao observar que HashMap e HashTable têm diferenças fundamentais na maneira como funcionam.
+
+HashTable vs HashMap
+HashTable
+Estrutura Estática: Uma HashTable tradicional é uma estrutura de dados que utiliza uma tabela de hash estática com um tamanho pré-definido. Ela geralmente possui um método de inicialização para definir o tamanho da tabela e lidar com colisões (por exemplo, através de encadeamento ou endereçamento aberto).
+Restrições de Chaves: As chaves em uma HashTable são geralmente limitadas a um conjunto predefinido, e o tamanho da tabela é fixo ou precisa ser redimensionado dinamicamente (o que pode ser custoso).
+HashMap (em JavaScript)
+Estrutura Dinâmica: Um HashMap, especialmente como implementado em JavaScript (através de objetos simples {} ou do Map do ES6), é dinâmico. Ele cresce conforme a necessidade e não requer uma inicialização com um tamanho fixo.
+Flexibilidade de Chaves: Permite a inserção de qualquer valor de chave, sem restrições quanto ao número de elementos ou tipo de chave (quando se usa Map). Isso significa que você pode inserir qualquer valor como chave sem a necessidade de redimensionar a estrutura subjacente.
+Comparação com Implementações Tradicionais
+Inicialização:
+
+HashTable: Requer uma inicialização com um tamanho fixo. Por exemplo, você pode precisar definir uma tabela de tamanho 1000, onde cada índice inicialmente aponta para null ou uma lista vazia.
+HashMap (JavaScript): Não requer inicialização com tamanho fixo. Você simplesmente começa com um objeto vazio {} ou uma instância de Map e adiciona pares chave-valor conforme necessário.
+Inserção e Acesso:
+
+HashTable: Pode envolver cálculo do índice usando uma função hash e pode exigir gerenciamento de colisões.
+HashMap (JavaScript): Inserção e acesso são diretos. Se você usar um objeto simples, a chave é automaticamente convertida para uma string.

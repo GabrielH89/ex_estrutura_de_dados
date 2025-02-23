@@ -1,0 +1,14 @@
+ARRAY: estrutura de dados linear, onde os elementos são armazenados de forma sequencial. É uma coleção de elementos do mesmo tipo
+de dados aramazenados de forma contígua na memória
+Dados do mesmo tipo
+Tamanho fixo
+Dados podem ser acessados por meio de um índice
+
+TIPOS DE ARRAYS
+UNIDIMENSIONAIS: arrays com uma única linha de elementos. Ex: array[5]
+BIDIMENSIONAIS: arrays com múltiplas linhas e/ou colunas, como no caso das matrizes. Ex: array[4][5]
+
+PESQUISA LIENAR: Pesquisar linear é um tipo de pesquisa que itera de forma sequencial por todos os elementos do array até encontrar 
+o elemento desejado
+
+PESQUISA BINÁRIA:  Requer que o array esteja ordenado. Divide o array repetidamente pela metade para encotnrar o valor desejado.

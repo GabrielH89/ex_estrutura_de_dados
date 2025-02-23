@@ -95,4 +95,51 @@ if(!found){
 }*/
 
 
+const names = ["Aline", "Daniel", "Gabriel", "Juliana"];
+
+function binarySearch(array, value) {
+    let size = array.length;
+    let left = 0;
+    let right = size - 1;
+    let found = false;
+
+    while(left <= right) {
+        const middle = Math.floor((left + right) / 2);
+        if(array[middle] === value) {
+            found = true;
+            console.log("Name " + value + " found in position " + middle);
+            break;
+        }else if(value < array[middle]){
+            right = middle - 1;
+        }else{
+            left = middle + 1;
+        }
+    }
+
+    if(!found) {
+        console.log("Name " + value + " not found");
+    }
+}
+
+binarySearch(names, "Gabriel");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -53,44 +53,32 @@ const arrayDesordenado = [33, 15, 10];
 const arrayOrdenado = quickSort(arrayDesordenado);
 console.log("Array ordenado: " + arrayOrdenado);*/
 
+
 function quickSort(array) {
-    const n = array.length;
-    if(n <= 1){
+    const size = array.length;
+
+    if(size <= 1) {
         return array;
     }
 
-    const pivotIndex = n - 1;
-    const pivot = array[pivotIndex];
+    const pivot = array[size - 1];
 
-    const menores = [];
-    const maiores = [];
+    const lower = []; const bigger = [];
 
-    for(let c=0; c<pivotIndex; c++){
-        if(array[c] > pivot){
-            maiores.push(array[c]);
+    for(let c=0; c<size - 1; c++) {
+        if(array[c] > pivot) {
+            bigger.push(array[c]);
         }else{
-            menores.push(array[c]);
+            lower.push(array[c]);
         }
     }
-    return [...quickSort(menores), pivot, quickSort(maiores)];
+
+    return [...quickSort(lower), pivot, ...quickSort(bigger)];
 }
 
-const unorderedArray = [4, 1, 7, 9, 5];
+const unorderedArray = [4, 1, 8, 3, 2];
 const orderedArray = quickSort(unorderedArray);
 console.log("Ordered array: " + orderedArray);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

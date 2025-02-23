@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <math.h>
 
-int isSorted(int array[], int size){
-    for(int i=0; i<size; i++){
-        if(array[i-1] > array[i]){
+int isOrdered(int array[], int size) {
+    for(int i=0; i<size; i++) {
+        if(array[i-1] > array[i]) {
             return 0;
         }
     }
     return 1;
 }
 
-int selectionSort(int array[], int size){
+void selectionSort(int array[], int size) {
     for(int a=0; a<size-1; a++){
         int minIndex = a;
-        for(int b=a+1; b<size; b++){
-            if(array[minIndex] > array[b]){
+        for(int b=a+1; b<size; b++) {
+            if(array[b] < array[minIndex]) {
                 minIndex = b;
             }
         }
@@ -23,67 +23,76 @@ int selectionSort(int array[], int size){
         array[minIndex] = aux;
     }
 
-    printf("==== ARRAY ORDERED ==== \n [ ");
-    for(int i=0; i<size; i++){
-        printf("%d ", array[i]);
-    }
-    printf("]\n");
+    printf("==== ORDERED ARRAY ==== \n [ ");
+        for(int c=0; c<size; c++){
+            printf("%d ", array[c]);
+        }
+        printf("] \n");
 }
 
-int binarySearch(int array[], int size, int value){
-    int inicio = 0;
-    int fim = size - 1;
+void linearSearch(int array[], int size, int value) {
     int found = 0;
-
-    while(inicio <= fim){
-        int middle = (inicio + fim) / 2;
-        if(value == array[middle]){
+    int attempts = 0;
+    for(int c=0; c<size; c++) {
+        attempts ++;
+        if(array[c] == value) {
             found = 1;
-            printf("The value %d was found at position %d \n", value, middle);
+            printf("Value %d found in position %d, after %d attempts \n", value, c, attempts);
             break;
-        }else if (value < array[middle]){
-            fim = middle - 1;
-        }else{
-            inicio = middle + 1;
         }
     }
-
-    if(!found){
-        printf("The value %d was not found \n", value);
+    if(!found) {
+        printf("Value %d not found \n", value);
     }
 }
 
-int sumArrayElements(int array[], int size){
-    int sumTotal = 0;
-    for(int c=0; c<size; c++){
-        sumTotal = array[c] + sumTotal;
-    }
-    printf("Soma total dos elementos do array: %d \n", sumTotal);
-}
+void binarySearch(int array[], int size, int value) {
+    int first = 0;
+    int last = size - 1;
+    int found = 0;
+    int attempts = 0;
 
-int quantParImpar(int array[], int size){
-    int qPar = 0, qImpar = 0;
-    for(int c=0; c<size; c++){
-        if(array[c] % 2 == 0){
-            qPar++;  
+    while(first <= last) {
+        attempts ++;
+        int middle = (first + last) / 2;
+        if(array[middle] == value) {
+            found = 1;
+            printf("Value %d found in position %d, after %d attempts \n", value, middle, attempts);
+            break;
+        }else if(array[middle] > value) {
+            last = middle - 1;
         }else{
-            qImpar++;
+            first = middle  + 1;
         }
     }
-    printf("Quant de elementos pares: %d \n", qPar);
-    printf("Quant de elementos impares: %d \n", qImpar);
+    if(!found) {
+        printf("Value %d not found \n", value);
+    }
+}
+
+void takeBiggerSmallerValue(int array[], int size) {
+    int bigger = array[0]; int smaller = array[0];
+    for(int c=0; c<size; c++) {
+        if(array[c] > bigger) {
+            bigger = array[c];
+        }else if(array[c] < smaller) {
+            smaller = array[c];
+        }
+    }
+    printf("Bigger value is %d\n", bigger);
+    printf("Smaller value is %d\n", smaller);
 }
 
 int main() {
-    int option;
-    do{
-        int size, value;
-        printf("Insert the size of array: \n");
+    int option, size, value, optionSwitch;
+
+    do {
+        printf("Insert the size of array \n");
         scanf("%d", &size);
 
         int vetor[size];
 
-        for(int c=0; c<size; c++){
+        for(int c=0; c<size; c++) {
             printf("Insert the value for position %d \n", c);
             scanf("%d", &vetor[c]);
         }
@@ -94,20 +103,31 @@ int main() {
         }
         printf("] \n");
 
-        if(!isSorted(vetor, size)){
+        if(!isOrdered(vetor, size)) {
             selectionSort(vetor, size);
         }
 
-        sumArrayElements(vetor, size);
-        quantParImpar(vetor, size);
+        printf("[1] For linear and binary search search \n");
+        printf("[2] To show smaller and bigger values \n");
+        printf("[3] ");
+        scanf("%d", &optionSwitch);
 
-        printf("Insert a value to find on array: \n");
-        scanf("%d", &value);
+        switch(optionSwitch) {
+            case 1:
+                printf("==== LINEAR AND BINARY SEARCH ==== \n");
+                printf("Insert the value you'd like to find \n");
+                scanf("%d", &value);
+                linearSearch(vetor, size, value);
+                binarySearch(vetor, size, value);
+            break;
+            case 2: 
+               printf("==== SMALLER AND BIGGER VALUE ==== \n");
+               takeBiggerSmallerValue(vetor, size);
+            break;
+        }
 
-        binarySearch(vetor, size, value);
-
-        printf("Would you like finish this program [1-YES] \n");
+        printf("Would you like finish this program? [1-YES] \n");
         scanf("%d", &option);
     }while(option != 1);
+    
 }
-

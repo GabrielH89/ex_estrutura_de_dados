@@ -73,13 +73,6 @@ int main() {
 #include <stdio.h>
 #include <math.h>
 
-void 
-
-int main() {
-    
-}
-
-
 
 
 

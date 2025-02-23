@@ -1,20 +1,19 @@
 #include <stdio.h>
-#include <math.h>
 
 int isOrdered(int array[], int size) {
-    for(int i=0; i<size; i++){
-        if(array[i-1] > array[i]){
-            return 0;
+    for(int i=0; i<size; i++) {
+        if(array[i-1] > array[i]) {
+           return 0;
         }
     }
     return 1;
 }
 
-int selectionSort(int array[], int size){
-    for(int a=0; a<size-1; a++){
+void selectionSort(int array[], int size) {
+    for(int a=0; a<size - 1; a++) {
         int minIndex = a;
-        for(int b=a+1; b<size; b++){
-            if(array[minIndex] > array[b]){
+        for(int b=a+1; b<size; b++) {
+            if(array[b] < array[minIndex]) {
                 minIndex = b;
             }
         }
@@ -22,66 +21,70 @@ int selectionSort(int array[], int size){
         array[a] = array[minIndex];
         array[minIndex] = aux;
     }
+
     printf("==== ORDERED ARRAY ==== \n [ ");
-        for(int c=0; c<size; c++){
-            printf("%d ", array[c]);
-        }
-        printf("] \n");
+    for(int c=0; c<size; c++) {
+        printf("%d ", array[c]); 
+    }
+    printf("] \n");
 }
 
-int binarySearch(int array[], int size, int value) {
-    int inicio = 0;
-    int fim = size - 1;
-    int found = 0;
+void binarySearch(int array[], int size, int value) {
+    int first = 0;
+    int last = size - 1;
+    int found = 0; int attempts = 0;
 
-    while(inicio <= fim){
-        int middle = (inicio + fim) / 2;
-        if(array[middle] == value){
+    while(first <= last) {
+        attempts ++;
+        int middle = (first + last) / 2;
+        if(array[middle] == value) {
             found = 1;
-            printf("The value %d was found in position %d \n", value, middle);
+            printf("Value %d found at pisition %d, after %d attempts \n", value, middle, attempts);
             break;
-        }else if(array[middle] > value){
-            fim = middle - 1;
-        }else{
-            inicio = middle + 1;
-        }
+        }else if(array[middle] < value) {
+            first = middle + 1;
+        }else {
+            last = middle - 1; 
+        } 
     }
-    if(!found){
-        printf("The value %d not found \n ", value);
+
+    if(!found) {
+        printf("Value %d not found \n", value);
     }
+
 }
 
 int main() {
-    int option;
-    do{
-        int size, value;
+    int option, size, value;
 
+    do {
         printf("Insert the size of array \n");
         scanf("%d", &size);
 
         int vetor[size];
 
-        for(int c=0; c<size; c++){
-            printf("Insert the element for position %d: \n", c);
+        for(int c=0; c<size; c++) {
+            printf("Insert value for position %d \n", c);
             scanf("%d", &vetor[c]);
         }
 
-        printf("==== COMPLETE ARRAY ==== \n [ ");
-        for(int c=0; c<size; c++){
-            printf("%d ", vetor[c]);
+        printf("==== SHOWING ARRAY ==== \n [ ");
+        for(int c=0; c<size; c++) {
+            printf("%d ", vetor[c]); 
         }
         printf("] \n");
 
-        if(!isOrdered(vetor, size)){
+        if(!isOrdered(vetor, size)) {
             selectionSort(vetor, size);
         }
-
-        printf("What value would you like to search? \n");
+      
+        printf("Which value woud you like search? \n");
         scanf("%d", &value);
-
         binarySearch(vetor, size, value);
 
-        printf("Would you like finish this program? [1-Yes] \n");
+        printf("Would you like finish this program? [1-YES] \n");
         scanf("%d", &option);
     }while(option != 1);
 }
+
+

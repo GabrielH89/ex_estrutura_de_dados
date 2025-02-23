@@ -1,12 +1,30 @@
+//Soma de valores EVEN(par) and ODD(ímpar)
 #include <stdio.h>
-#include <math.h>
 
 int main() {
-    int vetor1[] = {1, 3, 4};
-    char vetor2[10];
-    int vetor3[10];
+    int array[] = {3, 4, 1, 9, 4, 6};
+    int size = sizeof(array) / sizeof(array[0]);
+    int sumEven = 0; int sumOdd = 0;
+    int arrayEven[size];
+    int evenCount = 0;
 
-    printf("Size of vetor1 %d \n ", sizeof(vetor1));
-    printf("Size of vetor2 %d \n ", sizeof(vetor2));
-    printf("Size of vetor3 %d \n ", sizeof(vetor3));
+    for(int c=0; c<size; c++) {
+        printf("%d ", array[c]);
+        if(array[c] % 2 == 0) {
+            sumEven = array[c] + sumEven;
+            arrayEven[evenCount++] = array[c];
+        }else{
+            sumOdd = array[c] + sumOdd;
+        }
+    }
+
+    printf("Sum of even values: %d \n", sumEven);
+    printf("Sum of odd values: %d \n", sumOdd);
+
+    printf("THE EVEN VALUES: ");
+    for(int c=0; c<evenCount; c++) {
+        printf("%d ", arrayEven[c]);
+    }
+    printf("\n");
 }
+
